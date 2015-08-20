@@ -15,6 +15,7 @@
 		18DE85A01B84E77900C83DAD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18DE859F1B84E77900C83DAD /* Images.xcassets */; };
 		18DE85A31B84E77900C83DAD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DE85A11B84E77900C83DAD /* LaunchScreen.xib */; };
 		18DE85AF1B84E77900C83DAD /* NSSessiontTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DE85AE1B84E77900C83DAD /* NSSessiontTestTests.m */; };
+		18DE85CB1B85D35B00C83DAD /* CitiesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DE85CA1B85D35B00C83DAD /* CitiesTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,8 @@
 		18DE85A81B84E77900C83DAD /* NSSessiontTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NSSessiontTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		18DE85AD1B84E77900C83DAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18DE85AE1B84E77900C83DAD /* NSSessiontTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSSessiontTestTests.m; sourceTree = "<group>"; };
+		18DE85C91B85D35B00C83DAD /* CitiesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CitiesTableViewController.h; sourceTree = "<group>"; };
+		18DE85CA1B85D35B00C83DAD /* CitiesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CitiesTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +86,8 @@
 		18DE858E1B84E77900C83DAD /* NSSessiontTest */ = {
 			isa = PBXGroup;
 			children = (
+				18DE85C91B85D35B00C83DAD /* CitiesTableViewController.h */,
+				18DE85CA1B85D35B00C83DAD /* CitiesTableViewController.m */,
 				18DE85931B84E77900C83DAD /* AppDelegate.h */,
 				18DE85941B84E77900C83DAD /* AppDelegate.m */,
 				18DE85991B84E77900C83DAD /* ViewController.h */,
@@ -226,6 +231,7 @@
 				18DE85921B84E77900C83DAD /* main.m in Sources */,
 				18DE859B1B84E77900C83DAD /* ViewController.m in Sources */,
 				18DE85981B84E77900C83DAD /* NSSessiontTest.xcdatamodeld in Sources */,
+				18DE85CB1B85D35B00C83DAD /* CitiesTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,6 +360,7 @@
 				INFOPLIST_FILE = NSSessiontTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -364,6 +371,7 @@
 				INFOPLIST_FILE = NSSessiontTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};
@@ -420,6 +428,7 @@
 				18DE85B41B84E77900C83DAD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		18DE85B51B84E77900C83DAD /* Build configuration list for PBXNativeTarget "NSSessiontTestTests" */ = {
 			isa = XCConfigurationList;
@@ -428,6 +437,7 @@
 				18DE85B71B84E77900C83DAD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

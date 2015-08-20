@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "CitiesTableViewController.h"
 
 @interface ViewController ()
 //<NSURLSessionDelegate, NSURLSessionDownloadDelegate>
@@ -28,7 +29,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     
     [super viewWillAppear:animated];
-    [self downloadListOfCountries];
+  //  [self downloadListOfCountries];
     
 }
 
@@ -37,6 +38,16 @@
 - (IBAction)refreshData:(UIRefreshControl *)sender {
      NSLog(@"Wants refresh");
     
+    [self downloadListOfCountries:^(id result) {
+        [self.refreshControl endRefreshing];
+        if ([result isKindOfClass:[NSError class]]) {
+            //
+        } else if ([result isKindOfClass:[NSData class]]) {
+            NSError *error;
+            self.countries = [NSJSONSerialization JSONObjectWithData:result options:0 error:&error];
+        }
+        
+    }];
     
     
 }
@@ -45,25 +56,21 @@
 #pragma mark - NSSession 
 
 
-- (void)downloadListOfCountries{
+- (void)downloadListOfCountries:(void(^)(id result))completion{
     
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     NSURL *url = [NSURL URLWithString:@"https://restcountries.eu/rest/v1/all"];
     [[session dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        if(error){
-            NSLog(@"Error");
-        }else{
-            
-           
+        
             _countries = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-            //NSLog(@"%@", _countries);
-          dispatch_async(dispatch_get_main_queue(), ^{
-              
-              [self.tableView reloadData];
-
-          });
-            
-        }
+            NSLog(@"%@", _countries);
+//          dispatch_async(dispatch_get_main_queue(), ^{
+//              
+//              [self.tableView reloadData];
+//
+//          });
+//            
+      
         
     }] resume];
 }
@@ -100,5 +107,17 @@
     return cell;
     
 }
+
+#pragma mark - PrepareForSegue
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    NSIndexPath *path = [self.tableView indexPathForSelectedRow];
+    
+    NSString *city = [self.countries objectAtIndex:path.row];
+    
+    ((CitiesTableViewController *)segue.destinationViewController).city = city;
+}
+
 
 @end

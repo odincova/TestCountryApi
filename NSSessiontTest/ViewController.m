@@ -29,34 +29,23 @@
 -(void)viewWillAppear:(BOOL)animated{
     
     [super viewWillAppear:animated];
-  //  [self downloadListOfCountries];
+    [self downloadListOfCountries];
     
 }
 
 #pragma mark - Refresh
-
-- (IBAction)refreshData:(UIRefreshControl *)sender {
-     NSLog(@"Wants refresh");
-    
-    [self downloadListOfCountries:^(id result) {
-        [self.refreshControl endRefreshing];
-        if ([result isKindOfClass:[NSError class]]) {
-            //
-        } else if ([result isKindOfClass:[NSData class]]) {
-            NSError *error;
-            self.countries = [NSJSONSerialization JSONObjectWithData:result options:0 error:&error];
-        }
-        
-    }];
-    
-    
-}
+//
+//- (IBAction)refreshData:(UIRefreshControl *)sender {
+//     NSLog(@"Wants refresh");
+//   
+//    
+//}
 
 
 #pragma mark - NSSession 
 
 
-- (void)downloadListOfCountries:(void(^)(id result))completion{
+- (void)downloadListOfCountries{
     
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     NSURL *url = [NSURL URLWithString:@"https://restcountries.eu/rest/v1/all"];
@@ -64,12 +53,12 @@
         
             _countries = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
             NSLog(@"%@", _countries);
-//          dispatch_async(dispatch_get_main_queue(), ^{
-//              
-//              [self.tableView reloadData];
-//
-//          });
-//            
+          dispatch_async(dispatch_get_main_queue(), ^{
+              
+              [self.tableView reloadData];
+
+          });
+            
       
         
     }] resume];

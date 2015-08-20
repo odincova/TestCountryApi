@@ -31,18 +31,35 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+#pragma mark - UITableViewDataSource<NSObject>
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
+    return self.cities.count;
+    
+    
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    UITableViewCell *cell;
+    
+    if (indexPath.section == 0) {
+        
+        static NSString *identifierCell = @"CityCell";
+        
+        cell = [tableView dequeueReusableCellWithIdentifier:identifierCell];
+        
+       // id cityObject = self.cities[indexPath.row];
+        
+        //cell.textLabel.text = identifierCell[@"name"];
+       // cell.detailTextLabel.text = [identifierCell[@"population"] stringValue];
+        
+    }
+    
+    return cell;
 }
 
 /*

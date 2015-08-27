@@ -134,11 +134,11 @@
     self.countriesDict = [NSMutableDictionary new]; //словарь стран
     
     NSMutableArray *tempArray = [NSMutableArray new];
-    NSString *currentCountry = @"Юлькаландия";
+    NSString *currentCountry = @"Laplandiya";
     
     for (NSString *str in linesOfText) {
         NSArray *cityData = [str componentsSeparatedByString:@","];
-        if ([currentCountry isEqualToString:@"Юлькаландия"]) { //если текущая страна все еще "не существующая страна", то  нужно изменить текущую страну
+        if ([currentCountry isEqualToString:@"Laplandiya"]) { //если текущая страна все еще "не существующая страна", то  нужно изменить текущую страну
             currentCountry = cityData.firstObject; // изменить текущую страну
             [tempArray addObject:[self parseCityDataArray:cityData]]; // и это первая запись и нужно создать 1й элемент масива
             continue; //начать новую итерацию цикла - код ниже не будет выполнен
@@ -156,11 +156,8 @@
     }
     [self.countriesDict setObject:tempArray forKey:currentCountry.uppercaseString]; //цикл завершен - дописываем в масив стран масив из город последней страны.
     
-    /*на выходе получаем двумерный массив стран
-     в tableView numberOfRowsInSection: передаем countriesArray.count
-     
-     в tableView didSelectRowAtIndexPath: инитим новый контроллер в который передаем массив из городов countriesArray[indexPath.row]
-     */
+    //на выходе получаем двумерный массив стран
+    
     
     
 }

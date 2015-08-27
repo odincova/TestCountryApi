@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1869105D1B8F26120049693D /* countries1.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 1869105C1B8F26120049693D /* countries1.rtf */; };
 		18DE85921B84E77900C83DAD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DE85911B84E77900C83DAD /* main.m */; };
 		18DE85951B84E77900C83DAD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DE85941B84E77900C83DAD /* AppDelegate.m */; };
 		18DE85981B84E77900C83DAD /* NSSessiontTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 18DE85961B84E77900C83DAD /* NSSessiontTest.xcdatamodeld */; };
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1869105C1B8F26120049693D /* countries1.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = countries1.rtf; sourceTree = "<group>"; };
 		18DE858C1B84E77900C83DAD /* NSSessiontTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NSSessiontTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18DE85901B84E77900C83DAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18DE85911B84E77900C83DAD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 		18DE858E1B84E77900C83DAD /* NSSessiontTest */ = {
 			isa = PBXGroup;
 			children = (
+				1869105C1B8F26120049693D /* countries1.rtf */,
 				18DE85C91B85D35B00C83DAD /* CitiesTableViewController.h */,
 				18DE85CA1B85D35B00C83DAD /* CitiesTableViewController.m */,
 				18DE85931B84E77900C83DAD /* AppDelegate.h */,
@@ -208,6 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18DE859E1B84E77900C83DAD /* Main.storyboard in Resources */,
+				1869105D1B8F26120049693D /* countries1.rtf in Resources */,
 				18DE85A31B84E77900C83DAD /* LaunchScreen.xib in Resources */,
 				18DE85A01B84E77900C83DAD /* Images.xcassets in Resources */,
 			);

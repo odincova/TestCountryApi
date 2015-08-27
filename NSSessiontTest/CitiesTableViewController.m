@@ -12,18 +12,14 @@
 
 @property (nonatomic, strong) NSArray *cities;
 
+
 @end
 
 @implementation CitiesTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,54 +27,34 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+}
+
 
 #pragma mark - UITableViewDataSource<NSObject>
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return self.cities.count;
-    
-    
+    return self.citiesArray.count;
 }
 
+ static NSString *identifierCell = @"CityCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     UITableViewCell *cell;
-    
-    if (indexPath.section == 0) {
-        
-        static NSString *identifierCell = @"CityCell";
-        
         cell = [tableView dequeueReusableCellWithIdentifier:identifierCell];
         
-       // id cityObject = self.cities[indexPath.row];
-        
-        //cell.textLabel.text = identifierCell[@"name"];
-       // cell.detailTextLabel.text = [identifierCell[@"population"] stringValue];
-        
-    }
+        if (!cell) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifierCell];
+        }
+    cell.textLabel.text = self.citiesArray[indexPath.row][@"AccentCity"];
+    
     
     return cell;
 }
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-*/
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
 
 /*
 // Override to support editing the table view.

@@ -11,6 +11,7 @@
 @interface CitiesTableViewController : UITableViewController
 
 @property (nonatomic, copy) NSString *city;
-
+@property (strong, nonatomic) NSString *countryKey;
+@property (strong, nonatomic) NSMutableArray *citiesArray;
 
 @end
